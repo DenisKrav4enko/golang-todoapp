@@ -22,6 +22,12 @@ env-cleanup:
       echo "Cleanup was declined"; \
     fi
 
+env-port-forward:
+	@docker compose up -d port-forwarder
+
+env-port-close:
+	@docker compose down -d port-forwarder
+
 migrate-create:
 	@if [ -z "$(seq)" ]; then \
   		echo "Have no seq! Example: make migrate-create seq=1.0.0"; \
